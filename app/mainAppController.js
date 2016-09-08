@@ -68,7 +68,7 @@ mainController.controller('mainController', function ($scope, $http) {
 
 
     $scope.keywordUrl = function () {
-
+        $scope.inputError = '';
         //get the final information and check the inputs by onclick the button
         if ($scope.actorSearch === '' && $scope.movieSearch === '') {
             $scope.inputError = 'search by Actor or by movie name';
@@ -101,6 +101,7 @@ mainController.controller('mainController', function ($scope, $http) {
 
         //get the data and show section
         if (tempUrl !== '') {
+            console.log(tempUrl);
             $http({
                 method: 'GET',
                 url: tempUrl
