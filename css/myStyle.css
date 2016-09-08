@@ -1,0 +1,33 @@
+body {
+    margin-top: 15px;
+}
+
+.move-search, .parson-search {
+    position: relative;
+}
+
+.my-list {
+    position: absolute;
+    display: inline-block;
+    width: 90%;
+    z-index: 99999;
+}
+
+.media-object {
+    height: 80px;
+    width: 80px;
+}
+
+.odd {
+    background-color: #ddd;
+}
+
+.movie-tow-img img {
+    height: 500px;
+}
+
+.error{
+    color: red;
+    font-size: x-large;
+    text-transform: capitalize;
+}
