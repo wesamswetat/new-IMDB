@@ -1,0 +1,36 @@
+
+<header class="container">
+    <div class="row">
+        <div class="col-lg-2 logo">
+            <i class="fa fa-film" aria-hidden="true"></i>
+            <span>Movies</span>
+        </div>
+        <div class="col-lg-3 input-group">
+            <div>
+                <input type="text" ng-model="searchMulti" ng-change="actorSearch(searchMulti)"
+                       class="form-control" placeholder="Find Movies , Actors" aria-describedby="basic-addon1">
+            </div>
+        </div>
+    </div>
+</header>
+
+<div ng-show="movies" class="panel panel-default">
+    <div class="panel-heading">Movies search</div>
+    <div class="panel-body">
+        <div ng-repeat="movie in movies">
+            <div movie-directive movie="movie"></div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-show="actors" class="panel panel-default">
+    <div class="panel-heading">Actors search</div>
+    <div class="panel-body">
+        <div ng-repeat="actor in actors">
+            <div actor-directive actor="actor"></div>
+        </div>
+    </div>
+</div>
+
+

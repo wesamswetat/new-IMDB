@@ -1,0 +1,11 @@
+<div  class="media col-sm-6 col-md-4 col-lg-3">
+    <div class="media-left media-middle">
+        <a ng-click="saveMovieId(movie.id)" href="#/movie">
+            <img ng-show=" movie.poster_path" class="movieImg" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+            <img ng-show="! movie.poster_path" class="movieImg" ng-src="http://placehold.it/1020?text=no+Img" alt="">
+        </a>
+    </div>
+    <div class="media-body">
+        <h5 class="media-heading">{{movie.title}}</h5>
+    </div>
+</div>

@@ -2,4 +2,30 @@
  * Created by Wesam on 9/7/2016.
  */
 
-var myApp = angular.module('app', ['mainAppController']);
+(function () {
+
+    var app = angular.module('app', ['ngRoute']);
+
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'views/main.html',
+                controller: 'mainPageController'
+            })
+            .when('/actor', {
+                templateUrl: 'views/actor.html',
+                controller: 'actorPageController'
+            })
+            .when('/movie', {
+                templateUrl: 'views/movie.html',
+                controller: 'moviePageController'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+
+    })
+
+
+})();
+

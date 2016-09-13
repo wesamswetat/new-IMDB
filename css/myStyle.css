@@ -1,33 +1,44 @@
-body {
-    margin-top: 15px;
-}
 
-.move-search, .parson-search {
-    position: relative;
-}
-
-.my-list {
-    position: absolute;
-    display: inline-block;
-    width: 90%;
-    z-index: 99999;
-}
-
-.media-object {
+/*####################### START HEADER STYLE ########################## */
+header{
+    background-color: #f44336;
     height: 80px;
-    width: 80px;
 }
 
-.odd {
-    background-color: #ddd;
+header > div:first-child{
+    margin-top: 20px;
 }
 
-.movie-tow-img img {
-    height: 500px;
+.logo {
+    font-size: 2em;
 }
 
-.error{
-    color: red;
-    font-size: x-large;
-    text-transform: capitalize;
+.searchList{
+    overflow: inherit;
+    margin: 0;
+    padding: 5px;
+    background-color: #d5d5d5;
+
+}
+
+.searchList img{
+    height: 32px;
+    width: 32px;
+}
+
+.even{
+    background-color: #fff;
+}
+
+
+/*###############################*/
+
+.movieImg{
+    height: 64px !important;
+    width: 50px !important;
+
+}
+
+.actor-info-img{
+    height: 300px !important;
 }

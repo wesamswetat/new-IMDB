@@ -13,108 +13,40 @@
 
     <!-- Angular AND Library's -->
     <script src="js/angular.min.js"></script>
-
-    <!-- Controllers -->
-    <script src="app/mainAppController.js"></script>
+    <script src="js/angular-route.min.js"></script>
 
     <!-- MY Scripts -->
     <script src="app/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/controllers/mainPageController.js"></script>
+    <script src="app/controllers/actorPageController.js"></script>
+    <script src="app/controllers/moviePageController.js"></script>
+
+    <!-- Services -->
+    <script src="app/services/apiService.js"></script>
+
+    <!-- Directives -->
+    <script src="app/directives/actorDirective/actorDirective.js"></script>
+    <script src="app/directives/movieDirective/movieDirective.js"></script>
+
 </head>
-<body ng-controller="mainController">
 
-<!--############################################ Search inputs and th button Section################# -->
-<section class="searche-inputs container">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Search</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <!-- search by actor and his list -->
-                <div class="parson-search col-lg-3">
-                    <span>Search By Actor :</span>
-                    <input ng-model="actorSearch" ng-keyup="watchSearch('person')" ng-blur="hideKeyworData()"
-                           type="text"
-                           class="form-control" placeholder="Actor Name">
-                    <div class="list-group my-list">
-                        <button ng-mousedown="selectFromPerson(obj.name , obj.id)" ng-repeat="obj in actorSearch1"
-                                type="button" class="list-group-item">{{obj.name}}
-                        </button>
-                    </div>
-                </div>
-                <!-- search by movie and his list -->
-                <div class="move-search col-lg-3">
-                    <span>Search By Movie :</span>
-                    <input ng-model="movieSearch" ng-keyup="watchSearch('movie')" type="text" class="form-control"
-                           placeholder="Move Name" ng-blur="hideKeyworData()">
-                    <div class="list-group my-list">
-                        <button ng-mousedown="selectFromMovie( obj.title , obj.id)"
-                                ng-repeat="obj in movieSearch1"
-                                type="button" class="list-group-item">{{obj.title}}
-                        </button>
-                    </div>
-                </div>
+<body>
 
-                <div class=" col-lg-1">
-                    <span> &MediumSpace; </span>
-                    <a ng-click='keywordUrl()' class="btn btn-primary" href="#">
-                        <i class="fa fa-search fa-lg"></i> Search</a>
-                </div>
-            </div>
-        </div>
-        <div class="error"> {{inputError}} </div>
-    </div>
+<section>
+    <!--<input type="text" ng-model="serchMovie" ng-change="actorSearch('search/movie', serchMovie)">-->
+    <!--<input type="text" ng-model="serchPerson" ng-change="actorSearch('search/person', serchPerson)">-->
+    <!--<div ng-repeat="n in maovieData">{{n.title}}</div>-->
+    <!--<div ng-repeat="p in personData">{{p.name}}</div>-->
+
+
 </section>
 
-<!--############################################ moves list and actor info section ################# -->
-<section class="container">
-    <div class="row">
-        <!-- movies list -->
-        <div ng-show="isActorInfoShow" class="col-lg-5">
-            <div ng-class-odd="'odd'" ng-repeat="movie in bigDataOfMovies" class="media">
-                <div class="media-left media-middle">
-                    <a ng-href="#">
-                        <img class="media-object" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                             alt="{{movie.title}}">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h5 class="media-heading">{{movie.title}}</h5>
-                    <h6>character : {{movie.character}}</h6>
-                    <h6>release date : {{movie.release_date}}</h6>
-                </div>
-            </div>
-        </div>
-        <!-- actor info -->
-        <div class="col-lg-7">
-            <div ng-show="isActorInfoShow" class="thumbnail">
-                <img ng-src="http://image.tmdb.org/t/p/w500{{actorInfo.profile_path}}" alt="{{actorInfo.name}}">
-                <div class="caption">
-                    <h3>{{actorInfo.name}}</h3>
-                    <p> <h4>Birthday :</h4> {{actorInfo.birthday}}</p>
-                    <p> <h4>Biography :</h4>{{actorInfo.biography}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!--############################################ movie info section  ################# -->
 
 <section class="container">
-    <div ng-show="isMovieInfoShow" class="thumbnail">
-
-        <div class="caption">
-            <h3>{{movieDes.title}}</h3>
-            <p>{{movieDes.overview}}</p>
-        </div>
-
-        <div class="row movie-tow-img">
-            <img class="col-lg-6" src="http://image.tmdb.org/t/p/w500{{movieDes.poster_path}}" alt="{{movieDes.title}}">
-            <img class="col-lg-6" src="http://image.tmdb.org/t/p/w500{{movieDes.backdrop_path}}"
-                 alt="{{movieDes.title}}">
-        </div>
-    </div>
+    <ng-view></ng-view>
 </section>
 
 </body>

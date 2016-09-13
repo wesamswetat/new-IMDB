@@ -1,0 +1,11 @@
+<div  class="media col-sm-6 col-md-4 col-lg-3">
+    <div class="media-left media-middle">
+        <a ng-click="saveActorId(actor.id)" href="#/actor">
+            <img ng-show=" actor.profile_path" class="movieImg" ng-src="http://image.tmdb.org/t/p/w500{{actor.profile_path}}" alt="">
+            <img ng-show="! actor.profile_path" class="movieImg" ng-src="http://placehold.it/1020?text=no+Img" alt="">
+        </a>
+    </div>
+    <div class="media-body">
+        <h5 class="media-heading">{{actor.name}}</h5>
+    </div>
+</div>
