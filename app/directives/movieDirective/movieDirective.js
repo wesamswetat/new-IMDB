@@ -7,19 +7,24 @@
 
     movieDirective.directive('movieDirective', movieFunction);
 
-    function movieFunction(apiService) {
+    function movieFunction(apiService, $location) {
         return{
             restrict: 'A', // only attribute because we wont to pass movie object
             scope: {
-                movie: '=' // movie have to be tow way banding
+                movie: '=', // movie have to be tow way banding
+                t: '=' // Tv have to be tow way banding
             },
             replace: true, // to replace the html tag in ng-repeat
             templateUrl: 'app/directives/movieDirective/movie-template.html', // the template of the directive to replace in the DOM
             link: function (scope, elem, attrs) {
                 // to make listener to the events
-                scope.saveMovieId = function (id) {
+                scope.isHover = false;
+                scope.saveMovieId = function (movie) {
                     // to pass the id to the service
-                    apiService.setMovieId(id) ;
+                    apiService.setMovieId(movie.id) ;
+                    if (movie.hasOwnProperty('title')){
+                        $location.url('/movie');
+                    }
                 };
             }
 

@@ -30,6 +30,15 @@ header > div:first-child{
     background-color: #fff;
 }
 
+.hover{
+    background-color: #ddd;
+    border: 1px solid #9d9d9d !important;
+    cursor:pointer;
+}
+
+.border-hide{
+    border: 1px solid rgba(0,0,0,0);
+}
 
 /*###############################*/
 

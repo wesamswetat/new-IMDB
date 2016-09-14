@@ -12,9 +12,10 @@
         api = '?api_key=331b2ad9d3e0120dfd8c9bc6c14da645',
         url = 'http://api.themoviedb.org/3/';
 
-    function movieController($scope, $http, $q, apiService) {
+    function movieController($scope, $http, $q, $location, apiService) {
 
-        if (apiService.getMovieId() != 0){
+
+        if (apiService.getMovieId() != 0  ){
 
             var
                 movieInfo = $http({method: 'GET' , url: url + 'movie/'+ apiService.getMovieId() + api}),
@@ -25,6 +26,11 @@
                     $scope.info = arrayOfResponse[0].data;
                     $scope.imgs = arrayOfResponse[1].data.posters;
                 })
+        }
+
+        $scope.imgClick = function (url) {
+
+            $location.url('/imgview?url='+url +'&movie='+$scope.info.title);
         }
     }
 

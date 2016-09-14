@@ -1,25 +1,9 @@
 <ol class="breadcrumb">
     <li><a href="#/">Home</a></li>
-    <li class="active">Actor : {{info.name || 'loding...' }} </li>
+    <li class="active">Actor : {{info.name || 'loding...' }}</li>
 </ol>
 
-<div ng-show="info" class="panel panel-default">
-    <div class="panel-heading">Actor Information</div>
-    <div class="panel-body">
-        <div class="media">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object actor-info-img" ng-src="http://image.tmdb.org/t/p/w500{{info.profile_path}}" alt="{{info.name}}">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">{{info.name}}</h4>
-                <h5>Birthday : {{info.birthday}}</h5>
-                <h5>{{info.biography}}</h5>
-            </div>
-        </div>
-    </div>
-</div>
+<div info-directive info="info"></div>
 
 
 <div ng-show="imgs" class="panel panel-default">
@@ -27,8 +11,8 @@
     <div class="panel-body">
         <div class="row">
             <div ng-repeat="img in imgs | limitTo : '12'" class="col-lg-1">
-                <a ng-href="#/" class="thumbnail">
-                    <img ng-src="http://image.tmdb.org/t/p/w500{{img.file_path}}" alt="...">
+                <a  class="thumbnail">
+                    <img ng-click="imgClick(img.file_path)" ng-src="http://image.tmdb.org/t/p/w500{{img.file_path}}" >
                 </a>
             </div>
         </div>
@@ -38,43 +22,13 @@
 <div ng-show="movies" class="panel panel-default">
     <div class="panel-heading">Actor Movies</div>
     <div class="panel-body">
-        <div class="row">
-            <div ng-repeat="movie in movies | orderBy: '-release_date'" class="media col-sm-6 col-md-4 col-lg-3">
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img ng-show="movie.poster_path" class="media-object movieImg" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.title}}">
-                            <img ng-show="! movie.poster_path" class="movieImg" ng-src="http://placehold.it/1020?text=no+Img" alt="">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h5 class="media-heading">{{movie.title}}</h5>
-                        <h6>Release Date: {{movie.release_date || 'NO Date'}}</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div ng-repeat="movie in movies | orderBy: '-release_date'" movie-directive movie="movie"></div>
     </div>
 </div>
 
 <div ng-show="tv" class="panel panel-default">
     <div class="panel-heading">Actor Tv</div>
     <div class="panel-body">
-        <div class="row">
-            <div ng-repeat="t in tv | orderBy: '-release_date'" class="media col-sm-6 col-md-4 col-lg-3">
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img ng-show="t.poster_path" class="media-object movieImg" ng-src="http://image.tmdb.org/t/p/w500{{t.poster_path}}" alt="{{t.title}}">
-                            <img ng-show="! t.poster_path" class="movieImg" ng-src="http://placehold.it/1020?text=no+Img" alt="">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h5 class="media-heading">{{t.name}}</h5>
-                        <h6>Release Date: {{t.first_air_date || 'NO Date'}}</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div ng-repeat="t in tv | orderBy: '-first_air_date'" movie-directive t="t"></div>
     </div>
 </div>

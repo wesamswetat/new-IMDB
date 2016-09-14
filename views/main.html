@@ -17,9 +17,7 @@
 <div ng-show="movies" class="panel panel-default">
     <div class="panel-heading">Movies search</div>
     <div class="panel-body">
-        <div ng-repeat="movie in movies">
-            <div movie-directive movie="movie"></div>
-        </div>
+        <div ng-repeat="movie in movies" movie-directive movie="movie"></div>
     </div>
 </div>
 
@@ -27,9 +25,7 @@
 <div ng-show="actors" class="panel panel-default">
     <div class="panel-heading">Actors search</div>
     <div class="panel-body">
-        <div ng-repeat="actor in actors">
-            <div actor-directive actor="actor"></div>
-        </div>
+        <div ng-repeat="actor in actors" actor-directive actor="actor"></div>
     </div>
 </div>
 

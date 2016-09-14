@@ -20,6 +20,10 @@
                 templateUrl: 'views/movie.html',
                 controller: 'moviePageController'
             })
+            .when('/imgview', {
+                templateUrl: 'views/imgview.html',
+                controller: 'imgviewPageController'
+            })
             .otherwise({
                 redirectTo: '/'
             });

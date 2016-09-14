@@ -3,31 +3,16 @@
     <li class="active">Movie : {{info.title || 'loding...' }} </li>
 </ol>
 
-<div ng-show="info" class="panel panel-default">
-    <div class="panel-heading">Movie Information</div>
-    <div class="panel-body">
-        <div class="media">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object actor-info-img" ng-src="http://image.tmdb.org/t/p/w500{{info.poster_path}}" alt="{{info.title}}">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">{{info.title}}</h4>
-                <h5>Release Date : {{info.release_date}}</h5>
-                <h5>{{info.overview}}</h5>
-            </div>
-        </div>
-    </div>
-</div>
+<div info-directive info="info"></div>
+
 
 <div ng-show="imgs" class="panel panel-default">
     <div class="panel-heading">Movie Images</div>
     <div class="panel-body">
         <div class="row">
             <div ng-repeat="img in imgs | limitTo : '12'" class="col-lg-1">
-                <a ng-href="#/" class="thumbnail">
-                    <img ng-src="http://image.tmdb.org/t/p/w500{{img.file_path}}" alt="...">
+                <a  class="thumbnail">
+                    <img ng-click="imgClick(img.file_path)" ng-src="http://image.tmdb.org/t/p/w500{{img.file_path}}" alt="...">
                 </a>
             </div>
         </div>

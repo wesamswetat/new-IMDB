@@ -12,7 +12,7 @@
         api = '?api_key=331b2ad9d3e0120dfd8c9bc6c14da645',
         url = 'http://api.themoviedb.org/3/';
 
-    function actorController($scope, $http, $q, apiService) {
+    function actorController($scope, $http, $q, $location, apiService) {
 
        if (apiService.getActorId() != 0){
            var
@@ -29,8 +29,11 @@
                    $scope.imgs = arrayOfResponse[3].data.profiles;
                })
        }
+        
+       $scope.imgClick = function (url) {
 
-
+           $location.url('/imgview?url='+url +'&name='+$scope.info.name);
+       }
 
     }
 

@@ -8,7 +8,7 @@
 
     actorDirective.directive('actorDirective', actorFunction);
 
-    function actorFunction(apiService) {
+    function actorFunction(apiService, $location) {
         return{
             restrict: 'A' ,// only attribute because we wont to pass actor object
             scope: {
@@ -20,7 +20,8 @@
                 // to make listener to the events
                 scope.saveActorId = function (id) {
                     // to pass the id to the service
-                    apiService.setActorId(id)
+                    apiService.setActorId(id);
+                    $location.url('/actor');
                 };
                 
             }
