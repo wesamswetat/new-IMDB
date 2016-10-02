@@ -10,9 +10,9 @@
 
     function infoFunction() {
         return{
-            restrict: 'A',
+            restrict: 'EA',
             scope: {
-                info : '='
+                info : '='// actor have to be  banding
             },
             replace: true,
             templateUrl: 'app/directives/infoDirective/info-template.html',

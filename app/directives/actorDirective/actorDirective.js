@@ -10,9 +10,9 @@
 
     function actorFunction(apiService, $location) {
         return{
-            restrict: 'A' ,// only attribute because we wont to pass actor object
+            restrict: 'EA' ,
             scope: {
-                actor: '=' // actor have to be tow way banding
+                actor: '=' // actor have to be  banding
             },
             replace: true , // to replace the html tag in ng-repeat
             templateUrl: 'app/directives/actorDirective/actor-template.html' , // the template of the directive to replace in the DOM

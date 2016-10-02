@@ -9,10 +9,10 @@
 
     function movieFunction(apiService, $location) {
         return{
-            restrict: 'A', // only attribute because we wont to pass movie object
+            restrict: 'EA',
             scope: {
-                movie: '=', // movie have to be tow way banding
-                t: '=' // Tv have to be tow way banding
+                movie: '=', // movie have to be  banding
+                t: '=' // Tv have to be  banding
             },
             replace: true, // to replace the html tag in ng-repeat
             templateUrl: 'app/directives/movieDirective/movie-template.html', // the template of the directive to replace in the DOM
@@ -21,8 +21,8 @@
                 scope.isHover = false;
                 scope.saveMovieId = function (movie) {
                     // to pass the id to the service
-                    apiService.setMovieId(movie.id) ;
                     if (movie.hasOwnProperty('title')){
+                        apiService.setMovieId(movie.id) ;
                         $location.url('/movie');
                     }
                 };

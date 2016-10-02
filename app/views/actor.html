@@ -3,10 +3,10 @@
     <li class="active">Actor : {{info.name || 'loding...' }}</li>
 </ol>
 
-<div info-directive info="info"></div>
+<info-directive  info="info"></info-directive>
 
 
-<div ng-show="imgs" class="panel panel-default">
+<div ng-if="imgs" class="panel panel-default">
     <div class="panel-heading">Actor Images</div>
     <div class="panel-body">
         <div class="row">
@@ -19,16 +19,16 @@
     </div>
 </div>
 
-<div ng-show="movies" class="panel panel-default">
+<div ng-if="movies" class="panel panel-default">
     <div class="panel-heading">Actor Movies</div>
     <div class="panel-body">
-        <div ng-repeat="movie in movies | orderBy: '-release_date'" movie-directive movie="movie"></div>
+        <movie-directive ng-repeat="movie in movies | orderBy: '-release_date'"  movie="movie"></movie-directive>
     </div>
 </div>
 
-<div ng-show="tv" class="panel panel-default">
+<div ng-if="tv" class="panel panel-default">
     <div class="panel-heading">Actor Tv</div>
     <div class="panel-body">
-        <div ng-repeat="t in tv | orderBy: '-first_air_date'" movie-directive t="t"></div>
+        <movie-directive ng-repeat="t in tv | orderBy: '-first_air_date'"  t="t"></movie-directive>
     </div>
 </div>

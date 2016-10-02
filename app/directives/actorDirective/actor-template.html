@@ -2,8 +2,8 @@
     <div ng-mouseover="isHover = true" ng-mouseleave="isHover = false" ng-click="saveActorId(actor.id)" ng-class="{'hover' : isHover}" class="border-hide" >
     <div class="media-left media-middle">
         <a >
-            <img ng-show=" actor.profile_path" class="movieImg" ng-src="http://image.tmdb.org/t/p/w500{{actor.profile_path}}" alt="">
-            <img ng-show="! actor.profile_path" class="movieImg" ng-src="http://placehold.it/1020?text=no+Img" alt="">
+            <img ng-if=" actor.profile_path" class="movieImg" ng-src="http://image.tmdb.org/t/p/w500{{actor.profile_path}}" alt="">
+            <img ng-if="! actor.profile_path" class="movieImg" ng-src="http://placehold.it/1020?text=no+Img" alt="">
         </a>
     </div>
     <div class="media-body">

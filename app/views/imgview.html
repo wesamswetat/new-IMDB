@@ -1,0 +1,10 @@
+<ol class="breadcrumb">
+    <li><a href="#/">Home</a></li>
+    <li ng-if="imgUrl.name"><a href="#/actor">Actor</a></li>
+    <li ng-if="imgUrl.movie"><a href="#/movie">Movie</a></li>
+    <li ng-if="imgUrl.name" class="active">Actor : {{imgUrl.name || 'loding...' }}</li>
+    <li ng-if="imgUrl.movie" class="active">Actor : {{imgUrl.movie || 'loding...' }}</li>
+</ol>
+
+
+<img ng-src="{{url}}" alt="">

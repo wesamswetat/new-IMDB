@@ -3,10 +3,10 @@
     <li class="active">Movie : {{info.title || 'loding...' }} </li>
 </ol>
 
-<div info-directive info="info"></div>
+<info-directive  info="info"></info-directive>
 
 
-<div ng-show="imgs" class="panel panel-default">
+<div ng-if="imgs" class="panel panel-default">
     <div class="panel-heading">Movie Images</div>
     <div class="panel-body">
         <div class="row">

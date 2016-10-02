@@ -1,23 +1,23 @@
-<div ng-show="info" class="panel panel-default">
-    <div ng-show="info.title" class="panel-heading">Movie Information</div>
-    <div ng-show="info.name" class="panel-heading">Actor Information</div>
+<div ng-if="info" class="panel panel-default">
+    <div ng-if="info.title" class="panel-heading">Movie Information</div>
+    <div ng-if="info.name" class="panel-heading">Actor Information</div>
     <div class="panel-body">
         <div class="media">
             <div class="media-left media-middle">
-                <a ng-show="info.poster_path" >
+                <a ng-if="info.poster_path" >
                     <img class="media-object actor-info-img" ng-src="http://image.tmdb.org/t/p/w500{{info.poster_path}}" alt="{{info.title}}">
                 </a>
-                <a ng-show="info.profile_path" >
+                <a ng-if="info.profile_path" >
                     <img class="media-object actor-info-img" ng-src="http://image.tmdb.org/t/p/w500{{info.profile_path}}" alt="{{info.name}}">
                 </a>
             </div>
             <div class="media-body">
-                <h4 ng-show="info.title" class="media-heading">{{info.title}}</h4>
-                <h4 ng-show="info.name" class="media-heading">{{info.name}}</h4>
-                <h5 ng-show="info.release_date">Release Date : {{info.release_date}}</h5>
-                <h5 ng-show="info.birthday">Birthday : {{info.birthday}}</h5>
-                <h5 ng-show="info.overview">{{info.overview}}</h5>
-                <h5 ng-show="info.biography">{{info.biography}}</h5>
+                <h4 ng-if="info.title" class="media-heading">{{info.title}}</h4>
+                <h4 ng-if="info.name" class="media-heading">{{info.name}}</h4>
+                <h5 ng-if="info.release_date">Release Date : {{info.release_date}}</h5>
+                <h5 ng-if="info.birthday">Birthday : {{info.birthday}}</h5>
+                <h5 ng-if="info.overview">{{info.overview}}</h5>
+                <h5 ng-if="info.biography">{{info.biography}}</h5>
             </div>
         </div>
     </div>
